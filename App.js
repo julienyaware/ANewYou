@@ -13,21 +13,18 @@ export default function App() {
   const [splashScreenVisible, setSplashScreenVisible] = useState(true);
 
   useEffect(() => {
-    // Simulate splash screen duration
     setTimeout(() => {
       setSplashScreenVisible(false);
-    }, 3000); // Adjust the duration as needed
+    }, 3000); 
   }, []);
 
   return (
     <View style={styles.container}>
       {splashScreenVisible ? (
-        // Show splash screen
         <View style={styles.splashContainer}>
           <Image source={logo} style={styles.splashImage} />
         </View>
       ) : (
-        // Hide splash screen and show app content
         <NavigationContainer>
           <Drawer.Navigator initialRouteName="Home">
             <Drawer.Screen name="Home" component={HomeScreen} />
@@ -47,7 +44,7 @@ const styles = StyleSheet.create({
   },
   splashContainer: {
     flex: 1,
-    backgroundColor: '#fff', // Set a background color for the splash screen
+    backgroundColor: '#331800', 
     justifyContent: 'center',
     alignItems: 'center',
   },
