@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Button, ImageBackground, StyleSheet  } from 'react-native'
+import { View, Text, Button, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 
 const backgroundImage = require('../assets/backgroundImage.jpg');
@@ -9,12 +9,14 @@ export default function HomeScreen({ navigation }) {
         <View style={styles.container}>
         <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
         <View style={styles.overlay}>
-          <Text style={styles.text}>This is your content</Text>
-          <Button
+        <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Pick Addiction</Text>
+          </TouchableOpacity>
+          {/* <Button
           tyle={styles.text}
           onPress={() => navigation.navigate('Notifications')}
           title="Go to notifications"
-        />
+        /> */}
         </View>
         </ImageBackground>
 
@@ -27,19 +29,35 @@ const styles = StyleSheet.create({
   },
   backgroundImage: {
     flex: 1,
-    resizeMode: 'cover', // or 'stretch'
+    resizeMode: 'cover',
     justifyContent: 'center',
     alignItems: 'center',
   },
   overlay: {
-    flex: 1,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+    alignItems: 'center', 
   },
   text: {
     color: '#fff',
     fontSize: 24,
     fontWeight: 'bold',
+  },
+  button: {
+    backgroundColor: 'rgba(192,192,192, 0.3)',
+    padding: 15,
+    borderRadius: 10,
+    borderWidth: 1,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
