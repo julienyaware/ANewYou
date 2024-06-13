@@ -2,21 +2,33 @@ import React, { useState } from 'react'
 import { Alert, Button, Image, Pressable, SafeAreaView, Text, TextInput, View,StyleSheet } from 'react-native'
 const logo = require("../assets/logo.jpg")
 const facebook = require("../assets/favicon.png")
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../config/firebase';
+
 
 
 export default function LoginScreen() {
-    const [click,setClick] = useState(false);
-    const {username,setUsername}=  useState("");
-    const {password,setPassword}=  useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+
+  const onHandleLogin = () => {
+    if (email !== '' && password !== '') {
+     signInWithEmailAndPassword(auth, email, password)
+        .then(() => Alert.alert('Login Successful'))
+        .catch(err => Alert.alert("Invalid Credentials!"));
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
         
         <Image source={logo} style={styles.image} resizeMode='contain' />
         <Text style={styles.title}>Login</Text>
         <View style={styles.inputView}>
-            <TextInput style={styles.input} placeholder='EMAIL OR USERNAME' value={username} onChangeText={setUsername} autoCorrect={false}
+            <TextInput style={styles.input} placeholder='EMAIL' value={email} onChangeText={email => setEmail(email)} autoCorrect={false}
         autoCapitalize='none' />
-            <TextInput style={styles.input} placeholder='PASSWORD' secureTextEntry value={password} onChangeText={setPassword} autoCorrect={false}
+            <TextInput style={styles.input} placeholder='PASSWORD' secureTextEntry value={password} onChangeText={text => setPassword(text)} autoCorrect={false}
         autoCapitalize='none'/>
         </View>
         <View style={styles.rememberView}>
@@ -28,7 +40,7 @@ export default function LoginScreen() {
         </View>
 
         <View style={styles.buttonView}>
-            <Pressable style={styles.button} onPress={() => Alert.alert("Login Successful")}>
+            <Pressable style={styles.button} onPress={onHandleLogin}>
                 <Text style={styles.buttonText}>LOGIN</Text>
             </Pressable>
             <Text style={styles.optionsText}>OR LOGIN WITH</Text>

@@ -2,22 +2,30 @@ import React, { useState } from 'react'
 import { Alert, Button, Image, Pressable, SafeAreaView, Text, TextInput, View,StyleSheet } from 'react-native'
 const logo = require("../assets/logo.jpg")
 const facebook = require("../assets/favicon.png")
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../config/firebase'
 
+export default function RegisterScreen({navigation}) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+  const onHandleSignup = () => {
+    if (email !== '' && password !== '') {
+  createUserWithEmailAndPassword(auth, email, password)
+        .then(() => Alert.alert('Signup successful go to login screen'))
+        .catch(err => Alert.alert('Sign up Error please try again'));
+    }
+  };
 
-export default function RegisterScreen() {
-  const [click, setClick] = useState(false);
-  const { username, setUsername } = useState("");
-  const { password, setPassword } = useState("");
   return (
     <SafeAreaView style={styles.container}>
 
       <Image source={logo} style={styles.image} resizeMode='contain' />
       <Text style={styles.title}>Sign Up</Text>
       <View style={styles.inputView}>
-        <TextInput style={styles.input} placeholder='EMAIL OR USERNAME' value={username} onChangeText={setUsername} autoCorrect={false}
+        <TextInput style={styles.input} placeholder='EMAIL' value={email} onChangeText={email => setEmail(email)} autoCorrect={false}
           autoCapitalize='none' />
-        <TextInput style={styles.input} placeholder='PASSWORD' secureTextEntry value={password} onChangeText={setPassword} autoCorrect={false}
+        <TextInput style={styles.input} placeholder='PASSWORD' secureTextEntry value={password} onChangeText={password => setPassword(password)} autoCorrect={false}
           autoCapitalize='none' />
       </View>
       <View style={styles.rememberView}>
@@ -29,7 +37,7 @@ export default function RegisterScreen() {
       </View>
 
       <View style={styles.buttonView}>
-        <Pressable style={styles.button} onPress={() => Alert.alert("Registration Successful")}>
+        <Pressable style={styles.button} onPress={onHandleSignup}>
           <Text style={styles.buttonText}>REGISTER</Text>
         </Pressable>
         <Text style={styles.optionsText}>OR REGISTER WITH</Text>

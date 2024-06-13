@@ -7,7 +7,7 @@ YoutubeApiKey.js
 .expo/
 dist/
 web-build/
-
+config/firebase.js
 # Native
 *.orig.*
 *.jks

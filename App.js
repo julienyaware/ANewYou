@@ -12,6 +12,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import SelfAffirmationScreen from './screens/SelfAffirmationScreen';
 import SelfHelpVideoScreen from './screens/SelfHelpVideoScreen';
 import PlayVideoScreen from './screens/PlayVideoScreen';
+import CommunityChat from './screens/CommunityChat';
 
 const Drawer = createDrawerNavigator();
 
@@ -41,6 +42,7 @@ export default function App() {
             <Drawer.Screen name="Register" component={RegisterScreen} />
             <Drawer.Screen name="SelfAffirmation" component={SelfAffirmationScreen} />
             <Drawer.Screen name="SelfHelpVideos" component={SelfHelpVideoScreen} />
+            <Drawer.Screen name="CommunityChat" component={CommunityChat} />
             <Drawer.Screen name="playVideo" component={PlayVideoScreen}
              options={{
               drawerItemStyle: { display: 'none' }
