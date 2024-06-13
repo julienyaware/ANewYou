@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import React, { useState, useEffect, createContext, useContext } from 'react';
+import { StyleSheet, View, Image, ActivityIndicator } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import HomeScreen from './screens/HomeScreen';
@@ -13,6 +13,9 @@ import SelfAffirmationScreen from './screens/SelfAffirmationScreen';
 import SelfHelpVideoScreen from './screens/SelfHelpVideoScreen';
 import PlayVideoScreen from './screens/PlayVideoScreen';
 import CommunityChat from './screens/CommunityChat';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './config/firebase';
+import AuthenticationProviderContext from './providers/AuthenticationProviderContext';
 
 const Drawer = createDrawerNavigator();
 
@@ -33,6 +36,7 @@ export default function App() {
         </View>
       ) : (
         <NavigationContainer>
+          <AuthenticationProviderContext>
           <Drawer.Navigator initialRouteName="Home">
             <Drawer.Screen name="Home" component={HomeScreen} />
             <Drawer.Screen name="Settings" component={SettingsScreen} />
@@ -49,6 +53,7 @@ export default function App() {
     }} />
 
           </Drawer.Navigator>
+          </AuthenticationProviderContext>
         </NavigationContainer>
       )}
     </View>
