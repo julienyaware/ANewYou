@@ -1,6 +1,5 @@
-// VideoListScreen.js
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, Text, FlatList, StyleSheet, TouchableOpacity, ActivityIndicator, Image } from 'react-native';
 import axios from 'axios';
 import { YT_Key } from '../api/YoutubeApiKey';
 
@@ -17,7 +16,7 @@ const SelfHelpVideoScreen = ({ navigation }) => {
         q: 'breaking addictions',
         type: 'video',
         key: `${YT_Key}`,
-        maxResults: 20,
+        maxResults: 30,
       };
 
       try {
@@ -50,22 +49,35 @@ const SelfHelpVideoScreen = ({ navigation }) => {
   }
 
   return (
-    <FlatList
-      data={videos}
-      keyExtractor={(item) => item.id.videoId}
-      renderItem={({ item }) => (
-        <TouchableOpacity
-          style={styles.videoContainer}
-          onPress={() => navigation.navigate('playVideo', { videoId: item.id.videoId })}
-        >
-          <Text style={styles.videoTitle}>{item.snippet.title}</Text>
-        </TouchableOpacity>
-      )}
-    />
+    <View style={styles.container}>
+      <FlatList
+        contentContainerStyle={styles.flatListContent}
+        data={videos}
+        keyExtractor={(item) => item.id.videoId}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={styles.videoContainer}
+            onPress={() => navigation.navigate('playVideo', { videoId: item.id.videoId })}
+          >
+            <Image
+              style={styles.thumbnail}
+              source={{ uri: item.snippet.thumbnails.medium.url }}
+            />
+            <View style={styles.textContainer}>
+              <Text style={styles.videoTitle}>{item.snippet.title}</Text>
+            </View>
+          </TouchableOpacity>
+        )}
+      />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+  },
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -79,13 +91,27 @@ const styles = StyleSheet.create({
   errorText: {
     color: 'red',
   },
+  flatListContent: {
+    paddingHorizontal: 10,
+  },
   videoContainer: {
-    padding: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    borderBottomColor: '#6c4130',
+  },
+  thumbnail: {
+    width: 120,
+    height: 90,
+    marginRight: 10,
+  },
+  textContainer: {
+    flex: 1,
   },
   videoTitle: {
     fontSize: 16,
+    flexWrap: 'wrap',
   },
 });
 
