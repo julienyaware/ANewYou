@@ -10,7 +10,8 @@ import AddictionListScreen from './screens/AddictionListScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import SelfAffirmationScreen from './screens/SelfAffirmationScreen';
-
+import SelfHelpVideoScreen from './screens/SelfHelpVideoScreen';
+import PlayVideoScreen from './screens/PlayVideoScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -39,6 +40,11 @@ export default function App() {
             <Drawer.Screen name="Login" component={LoginScreen} />
             <Drawer.Screen name="Register" component={RegisterScreen} />
             <Drawer.Screen name="SelfAffirmation" component={SelfAffirmationScreen} />
+            <Drawer.Screen name="SelfHelpVideos" component={SelfHelpVideoScreen} />
+            <Drawer.Screen name="playVideo" component={PlayVideoScreen}
+             options={{
+              drawerItemStyle: { display: 'none' }
+    }} />
 
           </Drawer.Navigator>
         </NavigationContainer>
