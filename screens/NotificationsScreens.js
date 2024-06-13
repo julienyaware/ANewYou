@@ -16,9 +16,5 @@ export default function NotificationsScreen({ navigation }) {
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
       </Tab.Navigator>
-    
-        // <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        //   <Button onPress={() => navigation.goBack()} title="Go back home" />
-        // </View>
       );
 }
