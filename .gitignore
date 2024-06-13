@@ -7,7 +7,7 @@ YoutubeApiKey.js
 .expo/
 dist/
 web-build/
-api/
+
 # Native
 *.orig.*
 *.jks
