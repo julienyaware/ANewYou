@@ -16,7 +16,7 @@ const SelfHelpVideoScreen = ({ navigation }) => {
         q: 'breaking addictions',
         type: 'video',
         key: `${YT_Key}`,
-        maxResults: 30,
+        maxResults: 20,
       };
 
       try {
