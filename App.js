@@ -13,9 +13,9 @@ import SelfAffirmationScreen from './screens/SelfAffirmationScreen';
 import SelfHelpVideoScreen from './screens/SelfHelpVideoScreen';
 import PlayVideoScreen from './screens/PlayVideoScreen';
 import CommunityChat from './screens/CommunityChat';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from './config/firebase';
 import AuthenticationProviderContext from './providers/AuthenticationProviderContext';
+import OnlineTherapyScreen from './screens/OnlineTherapyScreen';
+import BetterHelpScreen from './screens/BetterHelpScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -47,6 +47,8 @@ export default function App() {
             <Drawer.Screen name="SelfAffirmation" component={SelfAffirmationScreen} />
             <Drawer.Screen name="SelfHelpVideos" component={SelfHelpVideoScreen} />
             <Drawer.Screen name="CommunityChat" component={CommunityChat} />
+            <Drawer.Screen name="OnlineTherapy" component={OnlineTherapyScreen} />
+            <Drawer.Screen name="Better Help" component={BetterHelpScreen} />
             <Drawer.Screen name="playVideo" component={PlayVideoScreen}
              options={{
               drawerItemStyle: { display: 'none' }
