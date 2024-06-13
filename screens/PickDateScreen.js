@@ -22,7 +22,7 @@ export default function PickDateScreen({ navigation }) {
 
   const handleSave = async () => {
     await AsyncStorage.setItem('startDate', date.toISOString());
-    navigation.navigate('Home');
+    navigation.navigate('Current Streak');
   };
 
   return (

@@ -17,6 +17,8 @@ import AuthenticationProviderContext from './providers/AuthenticationProviderCon
 import OnlineTherapyScreen from './screens/OnlineTherapyScreen';
 import BetterHelpScreen from './screens/BetterHelpScreen';
 import PickDateScreen from './screens/PickDateScreen';
+import SelectAddiction from './screens/SelectAddiction';
+import CurrentStreak from './screens/CurrentStreak';
 
 const Drawer = createDrawerNavigator();
 
@@ -50,7 +52,9 @@ export default function App() {
             <Drawer.Screen name="CommunityChat" component={CommunityChat} />
             <Drawer.Screen name="OnlineTherapy" component={OnlineTherapyScreen} />
             <Drawer.Screen name="Pick A Date" component={PickDateScreen} />
+            <Drawer.Screen name="Current Streak" component={CurrentStreak} />
             <Drawer.Screen name="Better Help" component={BetterHelpScreen} />
+            <Drawer.Screen name="Select Your bad habit" component={SelectAddiction} />
             <Drawer.Screen name="playVideo" component={PlayVideoScreen}
              options={{
               drawerItemStyle: { display: 'none' }
