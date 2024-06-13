@@ -16,6 +16,7 @@ import CommunityChat from './screens/CommunityChat';
 import AuthenticationProviderContext from './providers/AuthenticationProviderContext';
 import OnlineTherapyScreen from './screens/OnlineTherapyScreen';
 import BetterHelpScreen from './screens/BetterHelpScreen';
+import PickDateScreen from './screens/PickDateScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -48,6 +49,7 @@ export default function App() {
             <Drawer.Screen name="SelfHelpVideos" component={SelfHelpVideoScreen} />
             <Drawer.Screen name="CommunityChat" component={CommunityChat} />
             <Drawer.Screen name="OnlineTherapy" component={OnlineTherapyScreen} />
+            <Drawer.Screen name="Pick A Date" component={PickDateScreen} />
             <Drawer.Screen name="Better Help" component={BetterHelpScreen} />
             <Drawer.Screen name="playVideo" component={PlayVideoScreen}
              options={{

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ActivityIndicator, Dimensions, FlatList } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator, Dimensions, FlatList, ImageBackground } from 'react-native';
 import axios from 'axios';
+import { BlurView } from 'expo-blur';
+
+const backgroundImage = require('../assets/backgroundImage.jpg');
 
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
@@ -38,6 +41,8 @@ const SelfAffirmationScreen = () => {
   }
 
   return (
+    <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
+      <BlurView intensity={50} style={styles.blurContainer}>
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerText}>Swipe next to see the next quote</Text>
@@ -52,13 +57,24 @@ const SelfAffirmationScreen = () => {
         contentContainerStyle={styles.flatListContent}
       />
     </View>
+    </BlurView>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  blurContainer: {
+    ...StyleSheet.absoluteFill,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   container: {
     flex: 1,
-    backgroundColor: '#331800',
   },
   loadingContainer: {
     flex: 1,
@@ -67,10 +83,9 @@ const styles = StyleSheet.create({
   },
   header: {
     width: viewportWidth,
-    backgroundColor: '#331800',
     padding: 10,
     alignItems: 'center',
-    marginBottom: 10, // Add some margin at the bottom of the header
+    marginBottom: 10,
   },
   headerText: {
     fontSize: 16,

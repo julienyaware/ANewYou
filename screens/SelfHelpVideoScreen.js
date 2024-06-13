@@ -3,6 +3,8 @@ import { View, Text, FlatList, StyleSheet, TouchableOpacity, ActivityIndicator, 
 import axios from 'axios';
 import { YT_Key } from '../api/YoutubeApiKey';
 
+
+
 const SelfHelpVideoScreen = ({ navigation }) => {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -49,6 +51,7 @@ const SelfHelpVideoScreen = ({ navigation }) => {
   }
 
   return (
+    
     <View style={styles.container}>
       <FlatList
         contentContainerStyle={styles.flatListContent}
