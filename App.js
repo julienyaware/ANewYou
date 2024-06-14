@@ -19,6 +19,7 @@ import BetterHelpScreen from './screens/BetterHelpScreen';
 import PickDateScreen from './screens/PickDateScreen';
 import SelectAddiction from './screens/SelectAddiction';
 import CurrentStreak from './screens/CurrentStreak';
+import ResetScreen from './screens/ResetScreen';
 import registerNNPushToken from 'native-notify';
 
 
@@ -56,6 +57,7 @@ export default function App() {
             <Drawer.Screen name="OnlineTherapy" component={OnlineTherapyScreen} />
             <Drawer.Screen name="Pick A Date" component={PickDateScreen} />
             <Drawer.Screen name="Current Streak" component={CurrentStreak} />
+            <Drawer.Screen name="Reset Streak" component={ResetScreen} />
             <Drawer.Screen name="Better Help" component={BetterHelpScreen} />
             <Drawer.Screen name="Select Your bad habit" component={SelectAddiction} />
             <Drawer.Screen name="playVideo" component={PlayVideoScreen}
