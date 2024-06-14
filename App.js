@@ -19,10 +19,13 @@ import BetterHelpScreen from './screens/BetterHelpScreen';
 import PickDateScreen from './screens/PickDateScreen';
 import SelectAddiction from './screens/SelectAddiction';
 import CurrentStreak from './screens/CurrentStreak';
+import registerNNPushToken from 'native-notify';
+
 
 const Drawer = createDrawerNavigator();
 
 export default function App() {
+  registerNNPushToken(21911, '21AjVxE7XTr5CMFdLwMEka');
   const [splashScreenVisible, setSplashScreenVisible] = useState(true);
 
   useEffect(() => {
