@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { BlurView } from 'expo-blur';
+
+const backgroundImage = require('../assets/backgroundImage.jpg');
 
 export default function CurrentStreak() {
   const [daysSober, setDaysSober] = useState(0);
@@ -21,14 +23,17 @@ export default function CurrentStreak() {
   }, []);
 
   return (
+    <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
     <View style={styles.container}>
       <BlurView intensity={50} style={styles.blurContainer}>
         <View style={styles.card}>
-          <Text style={styles.title}>Days Stayed Sober</Text>
+          <Text style={styles.title}>Number of days</Text>
           <Text style={styles.days}>{daysSober}</Text>
         </View>
       </BlurView>
     </View>
+    </ImageBackground>
+
   );
 }
 
@@ -64,5 +69,10 @@ const styles = StyleSheet.create({
     fontSize: 48,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  backgroundImage: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
