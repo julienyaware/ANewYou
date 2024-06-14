@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFocusEffect } from '@react-navigation/native';
 import { BlurView } from 'expo-blur';
 
 const backgroundImage = require('../assets/backgroundImage.jpg');
@@ -8,32 +9,35 @@ const backgroundImage = require('../assets/backgroundImage.jpg');
 export default function CurrentStreak() {
   const [daysSober, setDaysSober] = useState(0);
 
-  useEffect(() => {
-    const calculateDaysSober = async () => {
-      const startDate = await AsyncStorage.getItem('startDate');
-      if (startDate) {
-        const start = new Date(startDate);
-        const today = new Date();
-        const difference = Math.floor((today - start) / (1000 * 60 * 60 * 24));
-        setDaysSober(difference);
-      }
-    };
+  const calculateDaysSober = async () => {
+    const startDate = await AsyncStorage.getItem('startDate');
+    if (startDate) {
+      const start = new Date(startDate);
+      const today = new Date();
+      const difference = Math.floor((today - start) / (1000 * 60 * 60 * 24));
+      setDaysSober(difference);
+    } else {
+      setDaysSober(0);
+    }
+  };
 
-    calculateDaysSober();
-  }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      calculateDaysSober();
+    }, [])
+  );
 
   return (
     <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
-    <View style={styles.container}>
-      <BlurView intensity={50} style={styles.blurContainer}>
-        <View style={styles.card}>
-          <Text style={styles.title}>Number of days</Text>
-          <Text style={styles.days}>{daysSober}</Text>
-        </View>
-      </BlurView>
-    </View>
+      <View style={styles.container}>
+        <BlurView intensity={50} style={styles.blurContainer}>
+          <View style={styles.card}>
+            <Text style={styles.title}>Number of days</Text>
+            <Text style={styles.days}>{daysSober}</Text>
+          </View>
+        </BlurView>
+      </View>
     </ImageBackground>
-
   );
 }
 
@@ -62,7 +66,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    fontWeight:'bold',
+    fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
   },

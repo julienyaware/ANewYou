@@ -31,8 +31,8 @@ export default function PickDateScreen({ navigation }) {
     <View style={styles.container}>
       
         <View style={styles.card}>
-          <Text style={styles.title}>Select Your Start Date</Text>
-          <Button onPress={showDatepicker} title="Show Date Picker" />
+          <Text style={styles.title}>When Did Your Journey Start?</Text>
+          <Button onPress={showDatepicker} title="Click to select your start date" />
           {show && (
             <DateTimePicker
               value={date}

@@ -51,14 +51,20 @@ export default function App() {
                   drawerItemStyle: { display: 'none' }
                 }} />
               <Drawer.Screen name="Login" component={LoginScreen} />
-              <Drawer.Screen name="Register" component={RegisterScreen} />
+              <Drawer.Screen name="Register" component={RegisterScreen} 
+              options={{
+                drawerItemStyle: { display: 'none' }
+              }} />
               <Drawer.Screen name="Self Affirmation" component={SelfAffirmationScreen} />
               <Drawer.Screen name="Videos For Self-help" component={SelfHelpVideoScreen} />
-              <Drawer.Screen name="CommunityChat" component={CommunityChat} />
+              <Drawer.Screen name="Community Chat" component={CommunityChat} />
               <Drawer.Screen name="Online Therapy" component={OnlineTherapyScreen} />
-              <Drawer.Screen name="Pick A Date" component={PickDateScreen} />
+              <Drawer.Screen name="Select Start Date" component={PickDateScreen} />
               <Drawer.Screen name="Current Streak" component={CurrentStreak} />
-              <Drawer.Screen name="Reset Streak" component={ResetScreen} />
+              <Drawer.Screen name="Reset Streak" component={ResetScreen} 
+              options={{
+                drawerItemStyle: { display: 'none' }
+              }} />
               <Drawer.Screen name="Better Help" component={BetterHelpScreen} />
               <Drawer.Screen name="Select Your bad habit" component={SelectAddiction}
                 options={{

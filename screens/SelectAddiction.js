@@ -18,7 +18,7 @@ export default function SelectAddiction({ navigation }) {
 
   const handleSave = async () => {
     await AsyncStorage.setItem('addictions', JSON.stringify(selectedAddictions));
-    navigation.navigate('Pick A Date');
+    navigation.navigate('Select Start Date');
   };
 
   return (
