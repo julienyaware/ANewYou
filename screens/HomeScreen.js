@@ -1,30 +1,27 @@
-import React from 'react'
-import { View, Text, Button, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native'
-import { createDrawerNavigator } from '@react-navigation/drawer'
+import React from 'react';
+import { View, Text, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import AddictionListScreen from './AddictionListScreen';
 
 const backgroundImage = require('../assets/backgroundImage.jpg');
 
 export default function HomeScreen({ navigation }) {
-    return (
-        <View style={styles.container}>
-        <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
+  return (
+    <View style={styles.container}>
+      <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
         <View style={styles.overlay}>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AddictionList')}>
-            <Text style={styles.buttonText}> + Pick Addiction</Text>
+          <Text style={styles.welcomeText}>Welcome to Wellness.</Text>
+          <Text style={styles.welcomeText}>Tell us what you are struggling with</Text>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Select Your bad habit')}>
+            <Text style={styles.buttonText}>+ Pick Addiction</Text>
           </TouchableOpacity>
-          {/* <Button
-
-          tyle={styles.text}
-          onPress={() => navigation.navigate('Notifications')}
-          title="Go to notifications"
-        /> */}
+          <Text style={styles.welcomeText}>We are dedicated to help you become better.</Text>
         </View>
-        </ImageBackground>
-
-      </View>
-      );
+      </ImageBackground>
+    </View>
+  );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -43,18 +40,22 @@ const styles = StyleSheet.create({
     bottom: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'center',
-    alignItems: 'center', 
+    alignItems: 'center',
+    padding: 20,
   },
-  text: {
+  welcomeText: {
     color: '#fff',
     fontSize: 24,
-    fontWeight: 'bold',
+    fontStyle: 'italic',
+    textAlign: 'center',
+    marginBottom: 20,
   },
   button: {
     backgroundColor: 'rgba(192,192,192, 0.3)',
     padding: 15,
     borderRadius: 10,
     borderWidth: 1,
+    marginVertical: 20,
   },
   buttonText: {
     color: '#fff',

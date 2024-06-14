@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Button, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Button, FlatList, TouchableOpacity, ImageBackground } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { BlurView } from 'expo-blur';
 
-const addictionsList = ['Alcohol', 'Drugs', 'Gambling','Procastination', 'Social Media','Smoking', 'Other'];
+const backgroundImage = require('../assets/backgroundImage.jpg');
+const addictionsList = ['Alcohol', 'Drugs', 'Gambling', 'Procrastination', 'Social Media', 'Smoking', 'Other'];
 
 export default function SelectAddiction({ navigation }) {
   const [selectedAddictions, setSelectedAddictions] = useState([]);
@@ -23,7 +23,7 @@ export default function SelectAddiction({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <BlurView intensity={50} style={styles.blurContainer}>
+      <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
         <View style={styles.card}>
           <Text style={styles.title}>Select Your Addictions</Text>
           <FlatList
@@ -43,7 +43,7 @@ export default function SelectAddiction({ navigation }) {
           />
           <Button title="Save and Continue" onPress={handleSave} />
         </View>
-      </BlurView>
+      </ImageBackground>
     </View>
   );
 }
@@ -51,17 +51,16 @@ export default function SelectAddiction({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
-  blurContainer: {
-    ...StyleSheet.absoluteFill,
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
     justifyContent: 'center',
     alignItems: 'center',
   },
   card: {
     width: 300,
-    padding: 20,
+    padding: 5,
     backgroundColor: 'white',
     borderRadius: 10,
     alignItems: 'center',
@@ -77,16 +76,17 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   item: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-    width: '100%',
+    padding: 15,
+    borderRadius: 10,
+    backgroundColor: '#f0f0f0',
+    marginBottom: 10,
+  },
+  itemText: {
+    fontSize: 18,
+    color: '#333',
     textAlign: 'center',
   },
   selectedItem: {
     backgroundColor: '#d3d3d3',
-  },
-  itemText: {
-    textAlign: 'center',
   },
 });
