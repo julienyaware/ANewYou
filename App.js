@@ -31,7 +31,7 @@ export default function App() {
   useEffect(() => {
     setTimeout(() => {
       setSplashScreenVisible(false);
-    }, 3000); 
+    }, 3000);
   }, []);
 
   return (
@@ -43,30 +43,33 @@ export default function App() {
       ) : (
         <NavigationContainer>
           <AuthenticationProviderContext>
-          <Drawer.Navigator initialRouteName="Home">
-            <Drawer.Screen name="Home" component={HomeScreen} />
-            <Drawer.Screen name="Settings" component={SettingsScreen} />
-            <Drawer.Screen name="Notifications" component={NotificationsScreens} />
-            <Drawer.Screen name="Login" component={LoginScreen} />
-            <Drawer.Screen name="Register" component={RegisterScreen} />
-            <Drawer.Screen name="SelfAffirmation" component={SelfAffirmationScreen} />
-            <Drawer.Screen name="SelfHelpVideos" component={SelfHelpVideoScreen} />
-            <Drawer.Screen name="CommunityChat" component={CommunityChat} />
-            <Drawer.Screen name="OnlineTherapy" component={OnlineTherapyScreen} />
-            <Drawer.Screen name="Pick A Date" component={PickDateScreen} />
-            <Drawer.Screen name="Current Streak" component={CurrentStreak} />
-            <Drawer.Screen name="Reset Streak" component={ResetScreen} />
-            <Drawer.Screen name="Better Help" component={BetterHelpScreen} />
-            <Drawer.Screen name="Select Your bad habit" component={SelectAddiction}
-              options={{
-                drawerItemStyle: { display: 'none' }
-      }} />
-            <Drawer.Screen name="playVideo" component={PlayVideoScreen}
-             options={{
-              drawerItemStyle: { display: 'none' }
-    }} />
+            <Drawer.Navigator initialRouteName="Home">
+              <Drawer.Screen name="Home" component={HomeScreen} />
+              <Drawer.Screen name="Settings" component={SettingsScreen} />
+              <Drawer.Screen name="Notifications" component={NotificationsScreens}
+                options={{
+                  drawerItemStyle: { display: 'none' }
+                }} />
+              <Drawer.Screen name="Login" component={LoginScreen} />
+              <Drawer.Screen name="Register" component={RegisterScreen} />
+              <Drawer.Screen name="Self Affirmation" component={SelfAffirmationScreen} />
+              <Drawer.Screen name="Videos For Self-help" component={SelfHelpVideoScreen} />
+              <Drawer.Screen name="CommunityChat" component={CommunityChat} />
+              <Drawer.Screen name="Online Therapy" component={OnlineTherapyScreen} />
+              <Drawer.Screen name="Pick A Date" component={PickDateScreen} />
+              <Drawer.Screen name="Current Streak" component={CurrentStreak} />
+              <Drawer.Screen name="Reset Streak" component={ResetScreen} />
+              <Drawer.Screen name="Better Help" component={BetterHelpScreen} />
+              <Drawer.Screen name="Select Your bad habit" component={SelectAddiction}
+                options={{
+                  drawerItemStyle: { display: 'none' }
+                }} />
+              <Drawer.Screen name="Play Video" component={PlayVideoScreen}
+                options={{
+                  drawerItemStyle: { display: 'none' }
+                }} />
 
-          </Drawer.Navigator>
+            </Drawer.Navigator>
           </AuthenticationProviderContext>
         </NavigationContainer>
       )}
@@ -81,7 +84,7 @@ const styles = StyleSheet.create({
   },
   splashContainer: {
     flex: 1,
-    backgroundColor: '#331800', 
+    backgroundColor: '#331800',
     justifyContent: 'center',
     alignItems: 'center',
   },

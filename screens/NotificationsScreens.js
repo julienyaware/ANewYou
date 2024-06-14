@@ -37,9 +37,7 @@ const renderItem = ({ item }) => {
         data={data}
         renderItem={renderItem}
         keyExtractor={item => item.notification_id.toString()}
-        ListHeaderComponent={() => (
-          <Text style={styles.header}>Notifications</Text>
-        )}
+        
       />
       
       </View>
@@ -51,7 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   item: {
-    backgroundColor: '#f9c2ff',
+    backgroundColor: '#87CEEB',
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,

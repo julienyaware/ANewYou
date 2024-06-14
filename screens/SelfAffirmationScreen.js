@@ -42,7 +42,7 @@ const SelfAffirmationScreen = () => {
 
   return (
     <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
-      <BlurView intensity={50} style={styles.blurContainer}>
+      <BlurView intensity={10} style={styles.blurContainer}>
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerText}>Need some words of affirmation ?Swipe  to see the next quote.</Text>
@@ -92,6 +92,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#fff',
     fontWeight: 'bold',
+    fontStyle: 'italic',
+    textAlign: 'center',
+    marginBottom: 20,
+    marginTop: 20,
   },
   flatListContent: {
     justifyContent: 'center',

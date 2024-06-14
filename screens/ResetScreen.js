@@ -17,8 +17,8 @@ export default function ResetScreen({ navigation }) {
             <BlurView intensity={10} style={styles.blurContainer}>
 
       <View style={styles.container}>
-        <Text style={styles.descriptionText}>We all make mistakes. Don't be so hard on youself</Text>
-        <Text style={styles.descriptionText}>Would you like to reset you current streak</Text>
+        <Text style={styles.descriptionText}>We all make mistakes. Don't be so hard on youself.</Text>
+        <Text style={styles.descriptionText}>Would you like to reset you current streak?</Text>
         <TouchableOpacity style={styles.button} onPress={handleReset}>
             <Text style={styles.buttonText}>Reset Streak</Text>
           </TouchableOpacity>

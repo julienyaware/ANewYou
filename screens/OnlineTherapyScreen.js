@@ -12,9 +12,9 @@ export default function OnlineTherapyScreen({ navigation }) {
 
   return (
     <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
-      <BlurView intensity={50} style={styles.blurContainer}>
+      <BlurView intensity={10} style={styles.blurContainer}>
         <View style={styles.card}>
-          <Text style={styles.cardText}>Would you want better help?</Text>
+          <Text style={styles.cardText}>Do you feel that you may need professional help?</Text>
           <TouchableOpacity style={styles.button} onPress={openBetterHelp}>
             <Text style={styles.buttonText}>Get Started</Text>
           </TouchableOpacity>

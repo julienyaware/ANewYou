@@ -60,7 +60,7 @@ const SelfHelpVideoScreen = ({ navigation }) => {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.videoContainer}
-            onPress={() => navigation.navigate('playVideo', { videoId: item.id.videoId })}
+            onPress={() => navigation.navigate('Play Video', { videoId: item.id.videoId })}
           >
             <Image
               style={styles.thumbnail}
