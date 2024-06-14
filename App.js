@@ -6,7 +6,6 @@ import HomeScreen from './screens/HomeScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import logo from './assets/logo.jpg';
 import NotificationsScreens from './screens/NotificationsScreens'
-import AddictionListScreen from './screens/AddictionListScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import SelfAffirmationScreen from './screens/SelfAffirmationScreen';
@@ -48,7 +47,6 @@ export default function App() {
             <Drawer.Screen name="Home" component={HomeScreen} />
             <Drawer.Screen name="Settings" component={SettingsScreen} />
             <Drawer.Screen name="Notifications" component={NotificationsScreens} />
-            <Drawer.Screen name="AddictionList" component={AddictionListScreen} />
             <Drawer.Screen name="Login" component={LoginScreen} />
             <Drawer.Screen name="Register" component={RegisterScreen} />
             <Drawer.Screen name="SelfAffirmation" component={SelfAffirmationScreen} />
@@ -59,7 +57,10 @@ export default function App() {
             <Drawer.Screen name="Current Streak" component={CurrentStreak} />
             <Drawer.Screen name="Reset Streak" component={ResetScreen} />
             <Drawer.Screen name="Better Help" component={BetterHelpScreen} />
-            <Drawer.Screen name="Select Your bad habit" component={SelectAddiction} />
+            <Drawer.Screen name="Select Your bad habit" component={SelectAddiction}
+              options={{
+                drawerItemStyle: { display: 'none' }
+      }} />
             <Drawer.Screen name="playVideo" component={PlayVideoScreen}
              options={{
               drawerItemStyle: { display: 'none' }

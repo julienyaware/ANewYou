@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import AddictionListScreen from './AddictionListScreen';
 
 const backgroundImage = require('../assets/backgroundImage.jpg');
 

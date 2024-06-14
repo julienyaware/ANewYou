@@ -45,7 +45,8 @@ const SelfAffirmationScreen = () => {
       <BlurView intensity={50} style={styles.blurContainer}>
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerText}>Swipe next to see the next quote</Text>
+        <Text style={styles.headerText}>Need some words of affirmation ?Swipe  to see the next quote.</Text>
+        
       </View>
       <FlatList
         data={quotes}
