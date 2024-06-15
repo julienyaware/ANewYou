@@ -12,7 +12,10 @@ export default function LoginScreen({ navigation }) {
   const onHandleLogin = () => {
     if (email !== '' && password !== '') {
       signInWithEmailAndPassword(auth, email, password)
-        .then(() => Alert.alert('Login Successful'))
+         .then(() => {
+        navigation.navigate('Community Chat')
+        Alert.alert('Logged In successfully');
+      })
         .catch(err => Alert.alert("Invalid Credentials!"));
     }
   };
