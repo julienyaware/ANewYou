@@ -2,12 +2,12 @@
 # dependencies
 .env
 node_modules/
-YoutubeApiKey.js
+
 # Expo
 .expo/
 dist/
 web-build/
-config/firebase.js
+
 # Native
 *.orig.*
 *.jks
