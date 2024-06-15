@@ -20,9 +20,13 @@ import SelectAddiction from './screens/SelectAddiction';
 import CurrentStreak from './screens/CurrentStreak';
 import ResetScreen from './screens/ResetScreen';
 import registerNNPushToken from 'native-notify';
+import { LogBox  } from 'react-native';
+
 
 
 const Drawer = createDrawerNavigator();
+LogBox.ignoreAllLogs();
+
 
 export default function App() {
   registerNNPushToken(21911, '21AjVxE7XTr5CMFdLwMEka');
@@ -45,12 +49,14 @@ export default function App() {
           <AuthenticationProviderContext>
             <Drawer.Navigator initialRouteName="Home">
               <Drawer.Screen name="Home" component={HomeScreen} />
-              <Drawer.Screen name="Settings" component={SettingsScreen} />
               <Drawer.Screen name="Notifications" component={NotificationsScreens}
                 options={{
                   drawerItemStyle: { display: 'none' }
                 }} />
               <Drawer.Screen name="Login" component={LoginScreen} />
+              <Drawer.Screen name="Select Start Date" component={PickDateScreen} />
+              <Drawer.Screen name="Current Streak" component={CurrentStreak} />
+
               <Drawer.Screen name="Register" component={RegisterScreen} 
               options={{
                 drawerItemStyle: { display: 'none' }
@@ -59,13 +65,15 @@ export default function App() {
               <Drawer.Screen name="Videos For Self-help" component={SelfHelpVideoScreen} />
               <Drawer.Screen name="Community Chat" component={CommunityChat} />
               <Drawer.Screen name="Online Therapy" component={OnlineTherapyScreen} />
-              <Drawer.Screen name="Select Start Date" component={PickDateScreen} />
-              <Drawer.Screen name="Current Streak" component={CurrentStreak} />
+              <Drawer.Screen name="Settings" component={SettingsScreen} />
               <Drawer.Screen name="Reset Streak" component={ResetScreen} 
               options={{
                 drawerItemStyle: { display: 'none' }
               }} />
-              <Drawer.Screen name="Better Help" component={BetterHelpScreen} />
+              <Drawer.Screen name="Better Help" component={BetterHelpScreen}
+              options={{
+                drawerItemStyle: { display: 'none' }
+              }} />
               <Drawer.Screen name="Select Your bad habit" component={SelectAddiction}
                 options={{
                   drawerItemStyle: { display: 'none' }
